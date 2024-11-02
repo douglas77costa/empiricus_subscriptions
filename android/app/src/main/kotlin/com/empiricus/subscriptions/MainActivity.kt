@@ -1,4 +1,4 @@
-package com.empiricus.subscriptions.empiricus_subscriptions
+package com.empiricus.subscriptions
 
 import io.flutter.embedding.android.FlutterActivity
 
