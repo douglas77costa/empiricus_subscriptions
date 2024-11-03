@@ -11,7 +11,12 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: appBar,
+      body: body,
+    );
+  }
+
+  PreferredSizeWidget get appBar => AppBar(
         title: const Text(
           'Login',
           style: TextStyle(
@@ -20,8 +25,9 @@ class LoginPage extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: AppColors.primary,
-      ),
-      body: SingleChildScrollView(
+      );
+
+  Widget get body => SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Form(
           key: controller.formKey,
@@ -83,25 +89,27 @@ class LoginPage extends StatelessWidget {
                   builder: (context, value, child) {
                     return FilledButton(
                       onPressed: () {
-                        if(!controller.isLoading.value){
+                        if (!controller.isLoading.value) {
                           controller.login(context);
                         }
                       },
-                      child: !controller.isLoading.value ? const Text('Entrar') : const SizedBox(
-                        height: 20,
-                        width: 20,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                        ),
-                      ),
+                      child: !controller.isLoading.value
+                          ? const Text('Entrar')
+                          : const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  Colors.white,
+                                ),
+                              ),
+                            ),
                     );
-                  }
+                  },
                 ),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
+      );
 }

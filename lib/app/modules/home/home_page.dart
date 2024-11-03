@@ -1,3 +1,4 @@
+import 'package:empiricus_subscriptions/app/modules/home/widgets/subscription_tile.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/style/colors.dart';
@@ -24,7 +25,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: appBar,
+      body: body,
+    );
+  }
+
+  PreferredSizeWidget get appBar => AppBar(
         leading: const Icon(
           Icons.person,
           color: Colors.white,
@@ -34,8 +40,9 @@ class _HomePageState extends State<HomePage> {
           style: const TextStyle(color: Colors.white, fontSize: 20),
         ),
         backgroundColor: AppColors.primary,
-      ),
-      body: ValueListenableBuilder(
+      );
+
+  Widget get body => ValueListenableBuilder(
         valueListenable: controller.isLoading,
         builder: (context, value, child) {
           if (value) {
@@ -52,24 +59,8 @@ class _HomePageState extends State<HomePage> {
             ),
             itemCount: controller.subscriptions.length,
             itemBuilder: (context, index) {
-              final item = controller.subscriptions[index];
-              return ListTile(
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.network(item.imageSmall),
-                ),
-                title: Text(item.name),
-                subtitle: Text(
-                  item.shortDescription,
-                  style: const TextStyle(color: AppColors.defaultTextColor),
-                ),
-                isThreeLine: true,
-                trailing: const Icon(
-                  Icons.chevron_right,
-                  color: AppColors.defaultTextColor,
-                ),
-                onTap: () {},
-              );
+              final subscription = controller.subscriptions[index];
+              return SubscriptionTile(subscription: subscription);
             },
             separatorBuilder: (BuildContext context, int index) {
               return Divider(
@@ -78,7 +69,5 @@ class _HomePageState extends State<HomePage> {
             },
           );
         },
-      ),
-    );
-  }
+      );
 }

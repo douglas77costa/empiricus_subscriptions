@@ -8,6 +8,7 @@ class AppColors {
   static const Color surfaceColor = Color(0xFFF4F3F3);
 
   static const Color defaultTextColor = Color(0xFF5F6368);
+  static const Color divider = Color(0xFFF6F6F6);
 
   static MaterialColor createMaterialColor(Color color) {
     List strengths = <double>[.05];
