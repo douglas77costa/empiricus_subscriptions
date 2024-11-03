@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/routes/pages.dart';
@@ -15,6 +16,13 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
+        statusBarColor: Colors.transparent,
+      ),
+    );
     navigateToLogin();
   }
 
@@ -22,7 +30,7 @@ class _SplashPageState extends State<SplashPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await Future.delayed(const Duration(seconds: 3));
       if (mounted) {
-        context.go(Routes.login);
+        context.replace(Routes.login);
       }
     });
   }

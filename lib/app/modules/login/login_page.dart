@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 36),
+              const SizedBox(height: 12),
               SizedBox(
                 width: 150,
                 child: ClipOval(
@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
                   child: Image.asset(AppImages.logo),
                 ),
               ),
-              const SizedBox(height: 36),
+              const SizedBox(height: 32),
               const Text(
                 'Acesse sua conta',
                 style: TextStyle(
@@ -78,11 +78,24 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 16),
               SizedBox(
                 width: double.infinity,
-                child: FilledButton(
-                  onPressed: () {
-                    controller.login();
-                  },
-                  child: const Text('Entrar'),
+                child: ValueListenableBuilder(
+                  valueListenable: controller.isLoading,
+                  builder: (context, value, child) {
+                    return FilledButton(
+                      onPressed: () {
+                        if(!controller.isLoading.value){
+                          controller.login(context);
+                        }
+                      },
+                      child: !controller.isLoading.value ? const Text('Entrar') : const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                        ),
+                      ),
+                    );
+                  }
                 ),
               ),
             ],

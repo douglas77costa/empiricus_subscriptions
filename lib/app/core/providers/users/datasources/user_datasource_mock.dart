@@ -5,11 +5,14 @@ import 'interfaces/user_datasource.dart';
 
 class UserDatasourceMock implements UserDatasource {
   @override
-  Future<UserEntity> loginUser({required String email, required String password}) async {
+  Future<UserEntity> loginUser(
+      {required String email, required String password}) async {
     var users = await getUsers();
-    var user = users.firstWhereOrNull((user) => user.email == email && user.password == password);
+    var user = users.firstWhereOrNull(
+        (user) => user.email == email && user.password == password);
+    await Future.delayed(const Duration(seconds: 1));
     if (user == null) {
-      throw Exception('Usuário não encontrado');
+      throw Exception('Senha ou e-mail incorretos');
     } else {
       return user;
     }
@@ -19,7 +22,7 @@ class UserDatasourceMock implements UserDatasource {
   Future<List<UserEntity>> getUsers() {
     return Future.value([
       UserEntity(
-        name: 'User Teste',
+        name: 'Teste',
         email: 'teste@teste.com',
         password: '123456',
       )
