@@ -15,13 +15,13 @@ Senha: 123456
 **Deep links**
 Para testar os deep links é necessário apenas acessar as seguintes URLs por meio de um dispositivo Android:
 
-https://empiricus-subscriptions.web.app/login
-https://empiricus-subscriptions.web.app/home/Teste
-https://empiricus-subscriptions.web.app/details/as-melhores-acoes-da-bolsa
-https://empiricus-subscriptions.web.app/details/vacas-leiteiras
-https://empiricus-subscriptions.web.app/details/as-melhores-acoes-do-mundo
-https://empiricus-subscriptions.web.app/details/palavra-do-estrategista
-https://empiricus-subscriptions.web.app/details/empiricus-fire
-https://empiricus-subscriptions.web.app/details/carteira-empiricus
-https://empiricus-subscriptions.web.app/details/fundos-imobiliarios
-https://empiricus-subscriptions.web.app/details/os-melhores-fundos-de-investimento
+- https://empiricus-subscriptions.web.app/login
+- https://empiricus-subscriptions.web.app/home/Teste
+- https://empiricus-subscriptions.web.app/details/as-melhores-acoes-da-bolsa
+- https://empiricus-subscriptions.web.app/details/vacas-leiteiras
+- https://empiricus-subscriptions.web.app/details/as-melhores-acoes-do-mundo
+- https://empiricus-subscriptions.web.app/details/palavra-do-estrategista
+- https://empiricus-subscriptions.web.app/details/empiricus-fire
+- https://empiricus-subscriptions.web.app/details/carteira-empiricus
+- https://empiricus-subscriptions.web.app/details/fundos-imobiliarios
+- https://empiricus-subscriptions.web.app/details/os-melhores-fundos-de-investimento
